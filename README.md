@@ -1,23 +1,14 @@
-# Markdown to HTML Converter
+# COSC Hackweek Platform
 
-A command-line tool that converts Markdown files to HTML.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Shivsandhanshiv/COSC_Hackweek_Platform/blob/main/iris_eda.ipynb)
 
-## Features
+## Iris Dataset EDA
+Basic exploratory data analysis using:
+- Pandas for data manipulation
+- Matplotlib for visualization
 
-- Converts headers (#, ##, etc.)
-- Handles bold (**bold**) and italic (*italic*)
-- Processes ordered and unordered lists
-- Converts links and images
-- Supports inline code and code blocks
-- Handles blockquotes and horizontal rules
-- Automatically wraps paragraphs
-
-## Requirements
-
-- Python 3.x
-
-## Installation
-
-```bash
-git clone https://github.com/Shivsandhanshiv/markdown-to-html.git
-cd markdown-to-html
+## How to Run
+1. Click the blue "Open in Colab" badge above
+2. In Colab:
+   - Click "Runtime" → "Run all" (or press Ctrl+F9)
+   - View the statistical analysis and visualizations
