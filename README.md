@@ -1,28 +1,21 @@
-# Instagram Automation Bot – CBITOSC
+#Deepgram Speech-to-Text (Simulated UI)
 
-This Python project simulates an Instagram automation task using Selenium. It was built as part of a challenge to:
+This is a simple speech-to-text tool that demonstrates real-time transcription using Deepgram API (conceptually).
 
-- Log in to a dummy Instagram account
-- Search for `@cbitosc`
-- Follow the account
-- Extract profile information (bio, posts, followers, following)
-- Save that data into a text file
+## Note:
+Deepgram’s WebSocket API requires a secure server environment and cannot be directly accessed using only an API key in the frontend. Therefore, this project simulates the transcription for demonstration purposes.
 
----
+## How to Run:
+1. Open `index.html` in browser
+2. Click "Start Listening"
+3. Watch simulated transcription appear in real-time
 
-## ⚠️ Note
+## Files:
+- `index.html` — UI page
+- `style.css` — styling
+- `app.js` — main logic (simulated speech-to-text)
+- `screenshot.png` — demo image
 
-Due to Instagram's strong bot protection, automated login was not possible — even manual login was blocked temporarily. Therefore, the data below is simulated to reflect expected output.
-
----
-
-## 📁 Files
-
-- `insta_bot.py` – Final Python script (simulated)
-- `cbitosc_data.txt` – Fake data extracted
-- `README.md` – Project overview
-
----
-
-## 📝 Sample Output (from cbitosc_data.txt)
-
+## Tech Stack:
+- HTML, CSS, JavaScript
+- Deepgram API 

@@ -1,21 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>COSC Commit Counter</title>
+  <title>Speech to Text with Deepgram</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>COSC Commit Counter 🚀</h1>
-    <div id="counter">0</div>
-    <div class="buttons">
-      <button onclick="increment()">➕ Increment</button>
-      <button onclick="decrement()">➖ Decrement</button>
-      <button onclick="reset()">🔁 Reset</button>
-    </div>
-  </div>
-  <script src="script.js"></script>
+  <h1>🎤 Deepgram Speech to Text</h1>
+  <button id="startBtn">Start Listening</button>
+  <textarea id="transcript" rows="10" cols="50" placeholder="Live transcription will appear here..."></textarea>
+
+  <script src="app.js"></script>
 </body>
 </html>
