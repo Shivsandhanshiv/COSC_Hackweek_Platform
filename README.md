@@ -1,24 +1,15 @@
-# Squad Goals - Dream Cricket Team
+#  Budget Tracker - Expense Pie Chart
 
-Welcome to **Thunder Strikers** - a fan-made dream team web app made with HTML, CSS, and JS!
+This is a simple budget tracker that allows users to input expense categories and amounts, and see a pie chart of their expenses using Chart.js.
 
-## Features
-- Team Name, Logo, and Slogan
-- Player Grid with images and roles
-- Modal with bonus stats:
-  - Strike Rate
-  - Matches Played
-  - Jersey Number
-  - Best Performance
+##  Features
+- Add custom expense categories and amounts
+- View expenses as a colorful pie chart
+- Built with HTML, CSS, JavaScript, and Chart.js
 
-## 📸 Preview
-![Preview](assets/preview.png)
+##  Screenshot
 
-##  Deployment
+![Pie Chart](bug.png)
 
- Live Site: [https://Shivsandhanshiv.github.io/dream-cricket-team](https://Shivsandhanshiv.github.io/dream-cricket-team)
-
-## Tech Stack
-- HTML5
-- CSS3
-- JavaScript
+## Live Demo
+[Click here to view the deployed app](https://Shivsandhanshiv.github.io/budget-tracker)

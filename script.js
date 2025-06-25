@@ -1,50 +1,32 @@
-const players = [
-  {
-    name: "Virat Kohli",
-    role: "Batsman",
-    image: "assets/vir.jpg",
-    jersey: 18,
-    matches: 254,
-    strikeRate: "138.2",
-    performance: "100*(52) vs SL"
-  },
-  {
-    name: "Jasprit Bumrah",
-    role: "Bowler",
-    image: "assets/jas.jpg",
-    jersey: 93,
-    matches: 140,
-    strikeRate: "78.5",
-    performance: "5/7 vs WI"
-  },
-  ];
+const ctx = document.getElementById('expenseChart').getContext('2d');
+const categories = [];
+const amounts = [];
 
-const grid = document.getElementById("playerGrid");
-const modal = document.getElementById("playerModal");
-
-players.forEach((p, index) => {
-  const card = document.createElement("div");
-  card.className = "player-card";
-  card.innerHTML = `
-    <img src="${p.image}" alt="${p.name}" />
-    <h3>${p.name}</h3>
-    <p>${p.role}</p>
-  `;
-  card.onclick = () => openModal(index);
-  grid.appendChild(card);
+const chart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: categories,
+    datasets: [{
+      label: 'Expenses',
+      data: amounts,
+      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+    }]
+  },
+  options: {
+    responsive: true
+  }
 });
 
-function openModal(i) {
-  const p = players[i];
-  document.getElementById("modalName").textContent = p.name;
-  document.getElementById("modalImage").src = p.image;
-  document.getElementById("modalJersey").textContent = p.jersey;
-  document.getElementById("modalMatches").textContent = p.matches;
-  document.getElementById("modalStrike").textContent = p.strikeRate;
-  document.getElementById("modalPerformance").textContent = p.performance;
-  modal.classList.remove("hidden");
-}
+document.getElementById('expense-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const category = document.getElementById('category').value;
+  const amount = parseFloat(document.getElementById('amount').value);
+  
+  if (category && amount > 0) {
+    categories.push(category);
+    amounts.push(amount);
+    chart.update();
+  }
 
-function closeModal() {
-  modal.classList.add("hidden");
-}
+  this.reset();
+});
