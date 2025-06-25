@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Speech to Text with Deepgram</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Squad Goals - Dream Cricket Team</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🎤 Deepgram Speech to Text</h1>
-  <button id="startBtn">Start Listening</button>
-  <textarea id="transcript" rows="10" cols="50" placeholder="Live transcription will appear here..."></textarea>
+  <header class="team-header">
+        <h1>Thunder Strikers</h1>
+    <p class="slogan">Unleash the Storm!</p>
+  </header>
 
-  <script src="app.js"></script>
+  <section class="player-grid" id="playerGrid">
+    <!-- Player Cards will be injected by JS -->
+  </section>
+
+  <div id="playerModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">×</span>
+      <h2 id="modalName"></h2>
+      <img id="modalImage" src="" alt="Player Image" />
+      <ul>
+        <li><strong>Jersey:</strong> <span id="modalJersey"></span></li>
+        <li><strong>Matches:</strong> <span id="modalMatches"></span></li>
+        <li><strong>Strike Rate:</strong> <span id="modalStrike"></span></li>
+        <li><strong>Best Performance:</strong> <span id="modalPerformance"></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

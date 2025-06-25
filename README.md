@@ -1,21 +1,24 @@
-#Deepgram Speech-to-Text (Simulated UI)
+# Squad Goals - Dream Cricket Team
 
-This is a simple speech-to-text tool that demonstrates real-time transcription using Deepgram API (conceptually).
+Welcome to **Thunder Strikers** - a fan-made dream team web app made with HTML, CSS, and JS!
 
-## Note:
-Deepgram’s WebSocket API requires a secure server environment and cannot be directly accessed using only an API key in the frontend. Therefore, this project simulates the transcription for demonstration purposes.
+## Features
+- Team Name, Logo, and Slogan
+- Player Grid with images and roles
+- Modal with bonus stats:
+  - Strike Rate
+  - Matches Played
+  - Jersey Number
+  - Best Performance
 
-## How to Run:
-1. Open `index.html` in browser
-2. Click "Start Listening"
-3. Watch simulated transcription appear in real-time
+## 📸 Preview
+![Preview](assets/preview.png)
 
-## Files:
-- `index.html` — UI page
-- `style.css` — styling
-- `app.js` — main logic (simulated speech-to-text)
-- `screenshot.png` — demo image
+##  Deployment
 
-## Tech Stack:
-- HTML, CSS, JavaScript
-- Deepgram API 
+ Live Site: [https://Shivsandhanshiv.github.io/dream-cricket-team](https://Shivsandhanshiv.github.io/dream-cricket-team)
+
+## Tech Stack
+- HTML5
+- CSS3
+- JavaScript
