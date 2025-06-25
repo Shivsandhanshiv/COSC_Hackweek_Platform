@@ -1,15 +1,16 @@
-#  Budget Tracker - Expense Pie Chart
+#  Word Wizard – Dictionary Web App
 
-This is a simple budget tracker that allows users to input expense categories and amounts, and see a pie chart of their expenses using Chart.js.
+A simple and elegant dictionary app built using HTML, CSS, and JavaScript. It uses the [Free Dictionary API](https://dictionaryapi.dev/) to fetch and display real-time definitions of words.
 
 ##  Features
-- Add custom expense categories and amounts
-- View expenses as a colorful pie chart
-- Built with HTML, CSS, JavaScript, and Chart.js
-
-##  Screenshot
-
-![Pie Chart](bug.png)
+- Enter any English word to see its meaning
+- Displays phonetics and part of speech
+- Clean and responsive UI
 
 ## Live Demo
-[Click here to view the deployed app](https://Shivsandhanshiv.github.io/budget-tracker)
+[Click here to view the app](https://Shivsandhanshiv.github.io/word-wizard)
+
+## Folder Structure
+- index.html
+- style.css
+- script.js
