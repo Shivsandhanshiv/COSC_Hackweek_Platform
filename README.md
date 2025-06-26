@@ -1,16 +1,24 @@
-#  Word Wizard – Dictionary Web App
+# Squad Goals - Dream Cricket Team
 
-A simple and elegant dictionary app built using HTML, CSS, and JavaScript. It uses the [Free Dictionary API](https://dictionaryapi.dev/) to fetch and display real-time definitions of words.
+Welcome to **Thunder Strikers** - a fan-made dream team web app made with HTML, CSS, and JS!
 
-##  Features
-- Enter any English word to see its meaning
-- Displays phonetics and part of speech
-- Clean and responsive UI
+## Features
+- Team Name, Logo, and Slogan
+- Player Grid with images and roles
+- Modal with bonus stats:
+  - Strike Rate
+  - Matches Played
+  - Jersey Number
+  - Best Performance
 
-## Live Demo
-[Click here to view the app](https://Shivsandhanshiv.github.io/word-wizard)
+## 📸 Preview
+![Preview](assets/preview.png)
 
-## Folder Structure
-- index.html
-- style.css
-- script.js
+##  Deployment
+
+ Live Site: [https://Shivsandhanshiv.github.io/dream-cricket-team](https://Shivsandhanshiv.github.io/dream-cricket-team)
+
+## Tech Stack
+- HTML5
+- CSS3
+- JavaScript
