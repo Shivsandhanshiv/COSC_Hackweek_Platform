@@ -1,28 +1,47 @@
-async function getDefinition() {
-  const word = document.getElementById('wordInput').value;
-  const resultDiv = document.getElementById('result');
-  resultDiv.innerHTML = 'Loading...';
+const startBtn = document.getElementById('start-record-btn');
+const status = document.getElementById('status');
+const taskList = document.getElementById('task-list');
 
-  try {
-    const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
-    const data = await response.json();
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
 
-    if (data.title === "No Definitions Found") {
-      resultDiv.innerHTML = `<p>No definition found for <strong>${word}</strong>.</p>`;
-      return;
-    }
+recognition.continuous = false;
+recognition.lang = 'en-US';
+recognition.interimResults = false;
 
-    const definition = data[0].meanings[0].definitions[0].definition;
-    const partOfSpeech = data[0].meanings[0].partOfSpeech;
-    const phonetic = data[0].phonetic || "";
+startBtn.addEventListener('click', () => {
+  recognition.start();
+  status.textContent = 'Listening...';
+});
 
-    resultDiv.innerHTML = `
-      <h2>${word}</h2>
-      <p><strong>Phonetic:</strong> ${phonetic}</p>
-      <p><strong>Part of Speech:</strong> ${partOfSpeech}</p>
-      <p><strong>Definition:</strong> ${definition}</p>
-    `;
-  } catch (err) {
-    resultDiv.innerHTML = `<p>Error fetching definition. Please try again later.</p>`;
-  }
+recognition.onresult = function(event) {
+  const transcript = event.results[0][0].transcript;
+  addTask(transcript);
+  status.textContent = 'Task added: "' + transcript + '"';
+};
+
+recognition.onerror = function(event) {
+  status.textContent = 'Error occurred: ' + event.error;
+};
+
+function addTask(text) {
+  const li = document.createElement('li');
+  li.innerHTML = `
+    <span>${text}</span>
+    <div>
+      <button onclick="markDone(this)">✔️</button>
+      <button onclick="deleteTask(this)">❌</button>
+    </div>
+  `;
+  taskList.appendChild(li);
+}
+
+function markDone(btn) {
+  const li = btn.closest('li');
+  li.classList.toggle('completed');
+}
+
+function deleteTask(btn) {
+  const li = btn.closest('li');
+  taskList.removeChild(li);
 }

@@ -1,21 +1,30 @@
-#  R You Ready for Regression?
+#  Voice Notes To-Do List
 
-## Project Overview
-This project performs simple and multiple linear regression analysis in R using two built-in datasets: `mtcars` and `iris`. The goal is to understand relationships between variables and visualize the regression lines.
+A browser-based to-do app where users can speak tasks using their voice. The app uses the Web Speech API to convert voice to text and adds tasks to a dynamic list.
 
-## Datasets Used
-- **mtcars**: Predicting `mpg` (miles per gallon) using `hp` (horsepower).
-- **iris**: Predicting `Sepal.Length` using multiple features.
+##  Features
+- Voice input using Web Speech API
+- Auto-add spoken tasks to the list
+- Mark tasks as completed 
+- Delete tasks 
+- Fully responsive design
 
-## Methods Used
-- `lm()` for linear regression modeling
-- `ggplot2` for data visualization
-- `ggsave()` to export plots
+##  Tech Stack
+- HTML, CSS, JavaScript
+- Web Speech API
 
-## Output
--  `mtcars_regression_plot.png`: Linear regression of MPG vs Horsepower
-- ` iris_regression_plot.png`: Sepal Length vs Petal Length
+##  How to Run
+1. Clone the repository or download the ZIP
+2. Open `index.html` in **Google Chrome**
+3. Click the 🎙️ button and start speaking
+4. Your task will appear in the list!
 
-## How to Run
-1. Install required packages: `ggplot2`
-2. Run the script in R/RStudio: `source("regression_analysis.R")`
+##  Live App
+[Demo Link](https://your-deployment-link.com)
+
+## Demo Video
+[Watch here](https://your-demo-video-link.com)
+
+## Screenshots
+![Voice Input](screenshots/voice-input.png)
+![Task Added](screenshots/task-added.png)
