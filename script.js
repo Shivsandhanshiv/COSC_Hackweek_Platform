@@ -1,47 +1,35 @@
-const startBtn = document.getElementById('start-record-btn');
-const status = document.getElementById('status');
-const taskList = document.getElementById('task-list');
+const container = document.getElementById("dogContainer");
+const loadBtn = document.getElementById("loadBtn");
+const breedFilter = document.getElementById("breedFilter");
 
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
+let allDogs = [];
 
-recognition.continuous = false;
-recognition.lang = 'en-US';
-recognition.interimResults = false;
+async function fetchDogs() {
+  const res = await fetch("https://dog.ceo/api/breeds/image/random/10");
+  const data = await res.json();
+  allDogs = data.message.map(url => ({
+    url,
+    breed: url.split("/")[4]
+  }));
+  displayDogs(allDogs.slice(0, 5));
+}
 
-startBtn.addEventListener('click', () => {
-  recognition.start();
-  status.textContent = 'Listening...';
+function displayDogs(dogs) {
+  container.innerHTML = "";
+  dogs.forEach(dog => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `<img src="${dog.url}" alt="${dog.breed}"><p>${dog.breed}</p>`;
+    container.appendChild(div);
+  });
+}
+
+breedFilter.addEventListener("input", () => {
+  const value = breedFilter.value.toLowerCase();
+  const filtered = allDogs.filter(dog => dog.breed.includes(value));
+  displayDogs(filtered.slice(0, 5));
 });
 
-recognition.onresult = function(event) {
-  const transcript = event.results[0][0].transcript;
-  addTask(transcript);
-  status.textContent = 'Task added: "' + transcript + '"';
-};
+loadBtn.addEventListener("click", fetchDogs);
 
-recognition.onerror = function(event) {
-  status.textContent = 'Error occurred: ' + event.error;
-};
-
-function addTask(text) {
-  const li = document.createElement('li');
-  li.innerHTML = `
-    <span>${text}</span>
-    <div>
-      <button onclick="markDone(this)">✔️</button>
-      <button onclick="deleteTask(this)">❌</button>
-    </div>
-  `;
-  taskList.appendChild(li);
-}
-
-function markDone(btn) {
-  const li = btn.closest('li');
-  li.classList.toggle('completed');
-}
-
-function deleteTask(btn) {
-  const li = btn.closest('li');
-  taskList.removeChild(li);
-}
+fetchDogs();

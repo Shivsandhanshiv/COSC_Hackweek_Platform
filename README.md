@@ -1,13 +1,18 @@
-# Web Scraping Safari – GitHub Trending Repositories
+#  Dog API Viewer
 
-This project scrapes the top 5 trending repositories from GitHub and saves their names and links in a CSV file using Python.
+## Overview
+This web app fetches and displays random dog images from the [Dog CEO Dog API](https://dog.ceo/dog-api/). It allows users to:
+- View 5 dog images
+- Filter images by dog breed using a search input
+- Refresh images using a button
+
+## Technologies
+- HTML
+- CSS
+- JavaScript
+- Dog CEO API
 
 ## Features
-- Extracts repository names and URLs from [GitHub Trending](https://github.com/trending)
-- Saves data into `trending_repos.csv`
-- Uses `requests` and `BeautifulSoup` for web scraping
-
-## Output
-
-The script generates a CSV file:
-
+- Responsive design
+- Real-time filtering by breed
+- Fetches new dog images dynamically
