@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Budget Tracker</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Squad Goals - Dream Cricket Team</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Budget Tracker</h1>
+  <header class="team-header">
+        <h1>Thunder Strikers</h1>
+    <p class="slogan">Unleash the Storm!</p>
+  </header>
 
-    <form id="expense-form">
-      <input type="text" id="category" placeholder="Category" required />
-      <input type="number" id="amount" placeholder="Amount" required />
-      <button type="submit">Add Expense</button>
-    </form>
+  <section class="player-grid" id="playerGrid">
+    <!-- Player Cards will be injected by JS -->
+  </section>
 
-    <canvas id="expenseChart" width="400" height="400"></canvas>
+  <div id="playerModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">×</span>
+      <h2 id="modalName"></h2>
+      <img id="modalImage" src="" alt="Player Image" />
+      <ul>
+        <li><strong>Jersey:</strong> <span id="modalJersey"></span></li>
+        <li><strong>Matches:</strong> <span id="modalMatches"></span></li>
+        <li><strong>Strike Rate:</strong> <span id="modalStrike"></span></li>
+        <li><strong>Best Performance:</strong> <span id="modalPerformance"></span></li>
+      </ul>
+    </div>
   </div>
 
   <script src="script.js"></script>
