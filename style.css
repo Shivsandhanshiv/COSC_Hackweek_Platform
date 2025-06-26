@@ -1,40 +1,83 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f0f8ff;
+  background: #fefae0;
   margin: 0;
-  padding: 20px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container {
-  max-width: 500px;
-  background: white;
-  padding: 30px;
-  margin: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+.pikachu {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: #fdd835;
+  border-radius: 50%;
 }
 
-h1 {
-  text-align: center;
+.eye {
+  position: absolute;
+  top: 60px;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
 }
 
-label {
-  display: block;
-  margin-top: 15px;
+.eye.left {
+  left: 40px;
 }
 
-input, select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
+.eye.right {
+  right: 40px;
 }
 
-button {
-  margin-top: 20px;
-  width: 100%;
-  padding: 10px;
-  background: #4CAF50;
-  color: white;
-  border: none;
-  font-size: 16px;
+.cheek {
+  position: absolute;
+  bottom: 30px;
+  width: 30px;
+  height: 30px;
+  background: #e53935;
+  border-radius: 50%;
+}
+
+.cheek.left {
+  left: 20px;
+}
+
+.cheek.right {
+  right: 20px;
+}
+
+.mouth {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  width: 30px;
+  height: 15px;
+  background: #000;
+  border-radius: 0 0 50% 50%;
+  transform: translateX(-50%);
+}
+
+.ear {
+  position: absolute;
+  width: 20px;
+  height: 60px;
+  background: #fdd835;
+  border-radius: 50% 50% 0 0;
+  transform: rotate(20deg);
+  top: -50px;
+}
+
+.ear.left {
+  left: -10px;
+  transform: rotate(-30deg);
+  border-top: 15px solid #000;
+}
+
+.ear.right {
+  right: -10px;
+  transform: rotate(30deg);
+  border-top: 15px solid #000;
 }
