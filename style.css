@@ -1,83 +1,46 @@
 body {
-  background: #fefae0;
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 30px;
+  background: #f7f9fc;
+  color: #333;
 }
 
-.pikachu {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  background: #fdd835;
-  border-radius: 50%;
+h1 {
+  color: #2d89ef;
+  margin-bottom: 20px;
 }
 
-.eye {
-  position: absolute;
-  top: 60px;
-  width: 20px;
-  height: 20px;
-  background: #000;
-  border-radius: 50%;
+#reader {
+  width: 320px;
+  margin: 20px auto;
+  border: 2px solid #2d89ef;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
 }
 
-.eye.left {
-  left: 40px;
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+  color: green;
 }
 
-.eye.right {
-  right: 40px;
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #2d89ef;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.cheek {
-  position: absolute;
-  bottom: 30px;
-  width: 30px;
-  height: 30px;
-  background: #e53935;
-  border-radius: 50%;
+button:hover {
+  background-color: #1b6fc2;
 }
 
-.cheek.left {
-  left: 20px;
-}
-
-.cheek.right {
-  right: 20px;
-}
-
-.mouth {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  width: 30px;
-  height: 15px;
-  background: #000;
-  border-radius: 0 0 50% 50%;
-  transform: translateX(-50%);
-}
-
-.ear {
-  position: absolute;
-  width: 20px;
-  height: 60px;
-  background: #fdd835;
-  border-radius: 50% 50% 0 0;
-  transform: rotate(20deg);
-  top: -50px;
-}
-
-.ear.left {
-  left: -10px;
-  transform: rotate(-30deg);
-  border-top: 15px solid #000;
-}
-
-.ear.right {
-  right: -10px;
-  transform: rotate(30deg);
-  border-top: 15px solid #000;
+input[type="file"] {
+  margin-top: 15px;
 }

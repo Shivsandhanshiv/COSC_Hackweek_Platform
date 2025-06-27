@@ -1,35 +1,41 @@
-const container = document.getElementById("dogContainer");
-const loadBtn = document.getElementById("loadBtn");
-const breedFilter = document.getElementById("breedFilter");
+let html5QrcodeScanner;
+const resultDiv = document.getElementById("result");
 
-let allDogs = [];
-
-async function fetchDogs() {
-  const res = await fetch("https://dog.ceo/api/breeds/image/random/10");
-  const data = await res.json();
-  allDogs = data.message.map(url => ({
-    url,
-    breed: url.split("/")[4]
-  }));
-  displayDogs(allDogs.slice(0, 5));
+function startScanner() {
+  html5QrcodeScanner = new Html5Qrcode("reader");
+  html5QrcodeScanner.start(
+    { facingMode: "environment" },
+    {
+      fps: 10,
+      qrbox: { width: 250, height: 250 }
+    },
+    qrCodeMessage => {
+      resultDiv.innerText = `Scanned Result: ${qrCodeMessage}`;
+      stopScanner();
+    },
+    errorMessage => {}
+  );
 }
 
-function displayDogs(dogs) {
-  container.innerHTML = "";
-  dogs.forEach(dog => {
-    const div = document.createElement("div");
-    div.className = "card";
-    div.innerHTML = `<img src="${dog.url}" alt="${dog.breed}"><p>${dog.breed}</p>`;
-    container.appendChild(div);
-  });
+function stopScanner() {
+  if (html5QrcodeScanner) {
+    html5QrcodeScanner.stop().then(() => {
+      html5QrcodeScanner.clear();
+    }).catch(err => console.error(err));
+  }
 }
 
-breedFilter.addEventListener("input", () => {
-  const value = breedFilter.value.toLowerCase();
-  const filtered = allDogs.filter(dog => dog.breed.includes(value));
-  displayDogs(filtered.slice(0, 5));
-});
+function scanFromFile(input) {
+  if (input.files.length === 0) return;
 
-loadBtn.addEventListener("click", fetchDogs);
+  const file = input.files[0];
+  const html5QrCode = new Html5Qrcode("reader");
 
-fetchDogs();
+  html5QrCode.scanFile(file, true)
+    .then(qrCodeMessage => {
+      resultDiv.innerText = `Scanned Result: ${qrCodeMessage}`;
+    })
+    .catch(err => {
+      resultDiv.innerText = `Failed to scan: ${err}`;
+    });
+}

@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CSS Art - Pikachu</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>QR Code Scanner</title>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 30px; }
+    #reader { width: 300px; margin: auto; }
+    #result { margin-top: 20px; font-weight: bold; color: green; }
+  </style>
 </head>
 <body>
-  <div class="pikachu">
-  <div class="eye left"></div>
-  <div class="eye right"></div>
-  <div class="cheek left"></div>
-  <div class="cheek right"></div>
-  <div class="mouth"></div>
-  <div class="ear left"></div>
-  <div class="ear right"></div>
-</div>
+  <h1>QR Code Scanner</h1>
+  <div id="reader"></div>
+  <div id="result">Scan a QR Code to see result</div>
+  <br/>
+  <button onclick="startScanner()">Start Camera Scanner</button>
+  <button onclick="stopScanner()">Stop Scanner</button>
+  <br/><br/>
+  <input type="file" accept="image/*" onchange="scanFromFile(this)">
 </body>
+<script src="script.js"></script>
 </html>
