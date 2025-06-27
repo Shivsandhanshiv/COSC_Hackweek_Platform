@@ -1,24 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>QR Code Scanner</title>
-  <script src="https://unpkg.com/html5-qrcode"></script>
-  <style>
-    body { font-family: Arial; text-align: center; margin-top: 30px; }
-    #reader { width: 300px; margin: auto; }
-    #result { margin-top: 20px; font-weight: bold; color: green; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Pikachu</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>QR Code Scanner</h1>
-  <div id="reader"></div>
-  <div id="result">Scan a QR Code to see result</div>
-  <br/>
-  <button onclick="startScanner()">Start Camera Scanner</button>
-  <button onclick="stopScanner()">Stop Scanner</button>
-  <br/><br/>
-  <input type="file" accept="image/*" onchange="scanFromFile(this)">
+    <div class="container">
+        <div class="pikachu">
+            <!-- Ears -->
+            <div class="ear left-ear">
+                <div class="ear-tip"></div>
+            </div>
+            <div class="ear right-ear">
+                <div class="ear-tip"></div>
+            </div>
+            
+            <!-- Face -->
+            <div class="face">
+                <!-- Eyes -->
+                <div class="eye left-eye">
+                    <div class="eye-shine"></div>
+                </div>
+                <div class="eye right-eye">
+                    <div class="eye-shine"></div>
+                </div>
+                
+                <!-- Cheeks -->
+                <div class="cheek left-cheek"></div>
+                <div class="cheek right-cheek"></div>
+                
+                <!-- Nose -->
+                <div class="nose"></div>
+                
+                <!-- Mouth -->
+                <div class="mouth"></div>
+            </div>
+            
+            <!-- Body -->
+            <div class="body"></div>
+            
+            <!-- Arms -->
+            <div class="arm left-arm"></div>
+            <div class="arm right-arm"></div>
+            
+            <!-- Feet -->
+            <div class="foot left-foot"></div>
+            <div class="foot right-foot"></div>
+            
+            <!-- Tail -->
+            <div class="tail"></div>
+        </div>
+    </div>
 </body>
-<script src="script.js"></script>
 </html>
