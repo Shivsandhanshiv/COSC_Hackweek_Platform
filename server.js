@@ -1,30 +1,27 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const http = require('http');
+const { Server } = require('socket.io');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const server = http.createServer(app);
+const io = new Server(server);
 
-let submissions = [];
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+io.on('connection', (socket) => {
+    console.log('A user connected');
 
-app.get('/admission', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'form.html'));
+    socket.on('chat message', (msg) => {
+        io.emit('chat message', msg); 
+    });
+
+    socket.on('disconnect', () => {
+        console.log('A user disconnected');
+    });
 });
 
-app.post('/submit', (req, res) => {
-  const { fullName, email, phone, course } = req.body;
-  submissions.push({ fullName, email, phone, course });
-
-  res.send(`
-    <h2>Thank you, ${fullName}!</h2>
-    <p>You’ve successfully applied for the <strong>${course}</strong> program.</p>
-    <a href="/admission">Go back to form</a>
-  `);
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}/admission`);
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`Server listening on http://localhost:${PORT}`);
 });

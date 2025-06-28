@@ -1,34 +1,29 @@
 body {
-  background-color: #121212;
-  color: #00ff00;
-  font-family: 'Courier New', monospace;
-  margin: 0;
-  padding: 20px;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
 }
-
-#terminal {
-  height: 80vh;
-  overflow-y: auto;
-  margin-bottom: 10px;
-  white-space: pre-wrap;
+ul {
+    list-style-type: none;
+    padding: 10px;
 }
-
-#cliInput {
-  width: 100%;
-  padding: 8px;
-  background: #121212;
-  color: #00ff00;
-  border: 1px solid #00ff00;
-  font-family: 'Courier New', monospace;
-  outline: none;
+li {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
 }
-
-.command {
-  color: #4CAF50;
-  margin-bottom: 5px;
+form {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #f9f9f9;
+    padding: 10px;
 }
-
-.output {
-  margin-bottom: 15px;
-  color: #ffffff;
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+button {
+    padding: 10px;
 }
