@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>TimeZoneBuddy</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web CLI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🕒 TimeZoneBuddy</h1>
-  <p>Select at least two cities to find common meeting times</p>
-  <input type="text" id="city1" placeholder="e.g. New York" />
-  <input type="text" id="city2" placeholder="e.g. London" />
-  <input type="text" id="city3" placeholder="Optional: Tokyo" />
-  <button onclick="findMeetingTime()">Find Time</button>
-
-  <div id="result"></div>
-
+  <div id="terminal"></div>
+  <input type="text" id="cliInput" placeholder="Type command and press Enter..." autofocus>
   <script src="script.js"></script>
 </body>
 </html>

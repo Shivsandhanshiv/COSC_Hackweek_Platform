@@ -1,30 +1,28 @@
-# TimeZoneBuddy
+# Web CLI – Browser-Based Command Line Emulator
 
-A beginner-friendly time zone meeting planner. Enter 2 or more cities, and the app calculates overlapping time slots where everyone is available (9 AM to 8 PM in their local time). Uses Luxon for accurate time zone conversions.
+A simple in-browser CLI emulator that supports basic Unix-style commands using a simulated in-memory file system.
 
-## Tech Stack
+## Supported Commands
 
-- HTML5, CSS3, JavaScript
-- Luxon 
-
-## Features
-
-- Input 2+ cities (like New York, Tokyo, London)
-- Calculates overlapping slots (9 AM - 8 PM local)
-- Shows suggested meeting time in each user’s local time
+- `mkdir <dir>` – Create directory
+- `touch <file>` – Create file
+- `cd <dir>` – Change directory
+- `ls` – List contents
+- `rm <file>` – Delete file
+- `rmdir <dir>` – Remove directory
+- `mv <src> <dest>` – Rename/move
+- `cp <src> <dest>` – Copy
+- `curl <url>` – Simulate API fetch
+- Invalid commands return: `Command not recognized.`
 
 ## How to Run
 
-1. Clone the repo
-2. Open `index.html` in your browser
-3. Enter city names and click "Find Time"
+1. Clone or download the repo
+2. Open `index.html` in any modern browser
+3. Start typing commands in the CLI input
 
-## Supported Cities 
-- New York
-- London
-- Tokyo
-- Sydney
-- Mumbai
-- San Francisco
-- Berlin
+##  Built With
+
+- HTML, CSS, JavaScript
+- Simulated file system in-memory
 

@@ -1,60 +1,70 @@
-const { DateTime } = luxon;
+let fs = { '/': {} };
+let currentPath = ['/'];
 
-const cityTimeZones = {
-  "New York": "America/New_York",
-  "London": "Europe/London",
-  "Tokyo": "Asia/Tokyo",
-  "Sydney": "Australia/Sydney",
-  "Mumbai": "Asia/Kolkata",
-  "San Francisco": "America/Los_Angeles",
-  "Berlin": "Europe/Berlin"
-};
-
-function getAvailability(city) {
-  const zone = cityTimeZones[city];
-  if (!zone) return [];
-
-  let slots = [];
-  for (let hour = 9; hour <= 20; hour++) {
-    let dt = DateTime.now().set({ hour, minute: 0 }).setZone(zone);
-    slots.push(dt.toUTC().toISO()); // store as UTC
+function getCurrentDir() {
+  let dir = fs['/'];
+  for (let i = 1; i < currentPath.length; i++) {
+    dir = dir[currentPath[i]];
   }
-  return slots;
+  return dir;
 }
 
-function findMeetingTime() {
-  const cities = [
-    document.getElementById("city1").value.trim(),
-    document.getElementById("city2").value.trim(),
-    document.getElementById("city3").value.trim()
-  ].filter(c => c !== "");
+function handleCommand(input) {
+  const parts = input.trim().split(' ');
+  const cmd = parts[0];
+  const args = parts.slice(1);
+  const currentDir = getCurrentDir();
 
-  if (cities.length < 2) {
-    alert("Please enter at least two cities.");
-    return;
+  switch (cmd) {
+    case 'ls':
+      return Object.keys(currentDir).join('  ');
+    case 'mkdir':
+      if (!args[0]) return "Usage: mkdir <dirname>";
+      currentDir[args[0]] = {};
+      return "";
+    case 'touch':
+      if (!args[0]) return "Usage: touch <filename>";
+      currentDir[args[0]] = "file";
+      return "";
+    case 'cd':
+      if (!args[0]) return "Usage: cd <dirname>";
+      if (args[0] === '..') {
+        if (currentPath.length > 1) currentPath.pop();
+      } else if (currentDir[args[0]] && typeof currentDir[args[0]] === 'object') {
+        currentPath.push(args[0]);
+      } else {
+        return "Directory not found";
+      }
+      return "";
+    case 'clear':
+      document.getElementById('terminal').innerHTML = '';
+      return "";
+    default:
+      return "Command not recognized";
   }
+}
 
-  const availabilityLists = cities.map(getAvailability);
-  if (availabilityLists.includes([])) {
-    alert("Unknown city entered.");
-    return;
-  }
-
-  const commonSlots = availabilityLists.reduce((a, b) => a.filter(t => b.includes(t)));
-
-  const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = `<h2>Suggested Times</h2>`;
-
-  if (commonSlots.length === 0) {
-    resultDiv.innerHTML += "<p>No common time slots found.</p>";
-    return;
-  }
-
-  const firstSlot = DateTime.fromISO(commonSlots[0]);
-
-  cities.forEach(city => {
-    const zone = cityTimeZones[city];
-    const localTime = firstSlot.setZone(zone).toFormat("hh:mm a");
-    resultDiv.innerHTML += `<p>${city}: ${localTime}</p>`;
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.getElementById('cliInput');
+  const terminal = document.getElementById('terminal');
+  
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      const command = input.value;
+      if (!command.trim()) return;
+      
+      const output = handleCommand(command);
+      const path = '/' + currentPath.slice(1).join('/');
+      
+      terminal.innerHTML += `
+        <div class="command">user@web-cli:${path}$ ${command}</div>
+        <div class="output">${output}</div>
+      `;
+      
+      input.value = '';
+      terminal.scrollTop = terminal.scrollHeight;
+    }
   });
-}
+  
+  input.focus();
+});
