@@ -1,27 +1,44 @@
 const express = require('express');
-const http = require('http');
-const { Server } = require('socket.io');
+const fs = require('fs');
 const path = require('path');
-
 const app = express();
-const server = http.createServer(app);
-const io = new Server(server);
+const PORT = 3000;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.static('public'));
 
-io.on('connection', (socket) => {
-    console.log('A user connected');
+const DATA_FILE = path.join(__dirname, 'journalData.json');
 
-    socket.on('chat message', (msg) => {
-        io.emit('chat message', msg); 
-    });
+function generateSummaryAndMood(text) {
+    const summary = text.length > 100 ? text.slice(0, 100) + '...' : text;
+    const mood = /happy|joy|great|good/.test(text.toLowerCase()) ? '😊 Happy' :
+                 /sad|bad|angry|tired/.test(text.toLowerCase()) ? '😞 Sad' : '😐 Neutral';
+    return { summary, mood };
+}
 
-    socket.on('disconnect', () => {
-        console.log('A user disconnected');
-    });
+app.get('/api/entries', (req, res) => {
+    if (fs.existsSync(DATA_FILE)) {
+        const data = fs.readFileSync(DATA_FILE, 'utf-8');
+        res.json(JSON.parse(data));
+    } else {
+        res.json([]);
+    }
 });
 
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(`Server listening on http://localhost:${PORT}`);
+app.post('/api/entries', (req, res) => {
+    const { text } = req.body;
+    const { summary, mood } = generateSummaryAndMood(text);
+    const newEntry = { text, summary, mood, date: new Date().toISOString() };
+
+    let entries = [];
+    if (fs.existsSync(DATA_FILE)) {
+        entries = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+    }
+    entries.unshift(newEntry);
+    fs.writeFileSync(DATA_FILE, JSON.stringify(entries, null, 2));
+    res.json(newEntry);
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });

@@ -1,16 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Socket.IO Chat</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>AI Journal (No API)</title>
+  <style>
+    body { font-family: Arial; padding: 2em; background: #f4f4f4; }
+    textarea { width: 100%; height: 100px; }
+    button { margin-top: 10px; padding: 10px 20px; }
+    .entry { background: white; padding: 15px; margin-top: 15px; border-radius: 5px; }
+  </style>
 </head>
 <body>
-    <ul id="messages"></ul>
-    <form id="chat-form">
-        <input id="msg" autocomplete="off" placeholder="Type a message..." />
-        <button>Send</button>
-    </form>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="client.js"></script>
+  <h2>📝 AI-Powered Journal (No API Key Needed)</h2>
+  <textarea id="entryText" placeholder="Write your thoughts..."></textarea><br>
+  <button onclick="submitEntry()">Submit Entry</button>
+
+  <div id="entries"></div>
+
+  <script>
+    async function submitEntry() {
+      const text = document.getElementById('entryText').value;
+      if (!text) return alert("Please write something.");
+      const res = await fetch('/api/entries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+      const entry = await res.json();
+      document.getElementById('entryText').value = '';
+      loadEntries();
+    }
+
+    async function loadEntries() {
+      const res = await fetch('/api/entries');
+      const entries = await res.json();
+      const container = document.getElementById('entries');
+      container.innerHTML = '';
+      entries.forEach(e => {
+        container.innerHTML += `
+          <div class="entry">
+            <strong>${new Date(e.date).toLocaleString()}</strong><br>
+            <b>Mood:</b> ${e.mood} <br>
+            <b>Summary:</b> ${e.summary} <br>
+            <b>Original:</b> ${e.text}
+          </div>
+        `;
+      });
+    }
+
+    loadEntries();
+  </script>
 </body>
 </html>

@@ -1,29 +1,16 @@
-# BlackboxClone API
+# AI-Powered Daily Journal App
 
-A simple FastAPI-based text processing API that supports reversing text, encoding text, and filtering data by keyword.
-
+A web-based journaling application that lets users write daily thoughts and automatically generates a **summary** and **mood detection** using OpenAI's API.
 
 ## Features
 
-- **Reverse Text** – Reverses the given string.
-- **Encode Text** – Encodes a string into UTF-8 hex format.
-- **Filter Data** – Filters a list of strings based on a keyword.
+- Write and save daily journal entries.
+- AI-generated **summary** of each entry.
+- Detects your **mood** (e.g., Happy, Sad, Neutral).
+- View entries in a **timeline format**.
+- Data is stored locally in a JSON file 
+- Built with **Node.js**, **Express**, and basic HTML/CSS frontend.
 
-## Tech Stack
-
-- Python 3.10+
-- FastAPI
-- Uvicorn 
-
-## Project Structure
-blackboxclone/
-│
-├── main.py # FastAPI app entry point
-├── endpoints.py # Helper functions for logic
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
-
-##  Setup Instructions
-pip install -r requirements.txt
-uvicorn main:app --reload
-
+##Install Dependencies
+npm install
+node server.js
