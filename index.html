@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Pixel Playground</title>
+  <meta charset="UTF-8" />
+  <title>TimeZoneBuddy</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
 </head>
 <body>
-  <h1>🎨 Pixel Playground</h1>
-  <div class="controls">
-    <input type="color" id="colorPicker" value="#000000">
-    <button onclick="clearCanvas()">Clear</button>
-  </div>
-  <canvas id="drawCanvas"></canvas>
+  <h1>🕒 TimeZoneBuddy</h1>
+  <p>Select at least two cities to find common meeting times</p>
+  <input type="text" id="city1" placeholder="e.g. New York" />
+  <input type="text" id="city2" placeholder="e.g. London" />
+  <input type="text" id="city3" placeholder="Optional: Tokyo" />
+  <button onclick="findMeetingTime()">Find Time</button>
+
+  <div id="result"></div>
+
   <script src="script.js"></script>
 </body>
 </html>

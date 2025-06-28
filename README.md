@@ -1,25 +1,30 @@
-# Pixel Playground
+# TimeZoneBuddy
 
-Pixel Playground is a simple browser-based drawing app built using HTML5 Canvas, JavaScript, and CSS. Users can draw freely, select different colors, and clear the canvas — like a mini MS Paint!
+A beginner-friendly time zone meeting planner. Enter 2 or more cities, and the app calculates overlapping time slots where everyone is available (9 AM to 8 PM in their local time). Uses Luxon for accurate time zone conversions.
 
+## Tech Stack
+
+- HTML5, CSS3, JavaScript
+- Luxon 
 
 ## Features
 
-- Draw using mouse
-- Pick different colors using color picker
-- Clear canvas with one click
-- Responsive and lightweight
-
+- Input 2+ cities (like New York, Tokyo, London)
+- Calculates overlapping slots (9 AM - 8 PM local)
+- Shows suggested meeting time in each user’s local time
 
 ## How to Run
 
-1. Clone the repo or download the files
+1. Clone the repo
 2. Open `index.html` in your browser
-3. Start drawing!
+3. Enter city names and click "Find Time"
 
+## Supported Cities 
+- New York
+- London
+- Tokyo
+- Sydney
+- Mumbai
+- San Francisco
+- Berlin
 
-##  Built With
-
-- HTML5 Canvas API
-- Vanilla JavaScript
-- CSS3
