@@ -1,28 +1,37 @@
-# Web CLI – Browser-Based Command Line Emulator
+#  Hackweek Countdown Crisis – COSC
 
-A simple in-browser CLI emulator that supports basic Unix-style commands using a simulated in-memory file system.
+This is a **Next.js** web application that displays live event details for **Hackweek COSC**, including a dynamic countdown timer showing how much time is left until the event ends.
 
-## Supported Commands
+## Fixes & Improvements
 
-- `mkdir <dir>` – Create directory
-- `touch <file>` – Create file
-- `cd <dir>` – Change directory
-- `ls` – List contents
-- `rm <file>` – Delete file
-- `rmdir <dir>` – Remove directory
-- `mv <src> <dest>` – Rename/move
-- `cp <src> <dest>` – Copy
-- `curl <url>` – Simulate API fetch
-- Invalid commands return: `Command not recognized.`
+> The original project had several critical issues. Here’s what was fixed:
 
-## How to Run
+###  Fixed Issues
+1. **Missing CSS Module File**
+   - `Home.module.css` was referenced but did not exist. → Created correctly.
+   
+2. **Invalid Global Selectors in CSS Module**
+   - Used `h1 {}` globally inside `Home.module.css`, which is not allowed in CSS Modules. → Replaced with scoped `.title` class.
 
-1. Clone or download the repo
-2. Open `index.html` in any modern browser
-3. Start typing commands in the CLI input
+3. **Broken Countdown Logic**
+   - Ensured countdown updates every second and stops when the event ends.
 
-##  Built With
+4. **Improved UI Styling**
+   - Added styles for container, headings, and timer for better presentation.
 
-- HTML, CSS, JavaScript
-- Simulated file system in-memory
+## Project Structure
+hackweekcountdown/
+├── data/
+│ └── cosc.json // COSC event details
+├── pages/
+│ └── index.js // Main app page
+├── styles/
+│ └── Home.module.css // Scoped component styling
+├── public/
+├── package.json
+└── README.md
 
+## How to Run Locally
+npm install
+npm run dev
+Open browser and go to http://localhost:3000
