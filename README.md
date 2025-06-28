@@ -1,37 +1,29 @@
-#  Hackweek Countdown Crisis – COSC
+# BlackboxClone API
 
-This is a **Next.js** web application that displays live event details for **Hackweek COSC**, including a dynamic countdown timer showing how much time is left until the event ends.
+A simple FastAPI-based text processing API that supports reversing text, encoding text, and filtering data by keyword.
 
-## Fixes & Improvements
 
-> The original project had several critical issues. Here’s what was fixed:
+## Features
 
-###  Fixed Issues
-1. **Missing CSS Module File**
-   - `Home.module.css` was referenced but did not exist. → Created correctly.
-   
-2. **Invalid Global Selectors in CSS Module**
-   - Used `h1 {}` globally inside `Home.module.css`, which is not allowed in CSS Modules. → Replaced with scoped `.title` class.
+- **Reverse Text** – Reverses the given string.
+- **Encode Text** – Encodes a string into UTF-8 hex format.
+- **Filter Data** – Filters a list of strings based on a keyword.
 
-3. **Broken Countdown Logic**
-   - Ensured countdown updates every second and stops when the event ends.
+## Tech Stack
 
-4. **Improved UI Styling**
-   - Added styles for container, headings, and timer for better presentation.
+- Python 3.10+
+- FastAPI
+- Uvicorn 
 
 ## Project Structure
-hackweekcountdown/
-├── data/
-│ └── cosc.json // COSC event details
-├── pages/
-│ └── index.js // Main app page
-├── styles/
-│ └── Home.module.css // Scoped component styling
-├── public/
-├── package.json
-└── README.md
+blackboxclone/
+│
+├── main.py # FastAPI app entry point
+├── endpoints.py # Helper functions for logic
+├── requirements.txt # Python dependencies
+└── README.md # Project documentation
 
-## How to Run Locally
-npm install
-npm run dev
-Open browser and go to http://localhost:3000
+##  Setup Instructions
+pip install -r requirements.txt
+uvicorn main:app --reload
+
