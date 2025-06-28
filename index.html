@@ -1,41 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Squad Goals - Dream Cricket Team</title>
+  <meta charset="UTF-8">
+  <title>Pixel Playground</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="team-header">
-    <h1>Thunder Strikers</h1>
-    <p class="slogan">Unleash the Storm!</p>
-  </header>
-
-  <div class="filter-buttons">
-    <button onclick="filterPlayers('All')">All</button>
-    <button onclick="filterPlayers('Batsman')">Batsmen</button>
-    <button onclick="filterPlayers('Bowler')">Bowlers</button>
+  <h1>🎨 Pixel Playground</h1>
+  <div class="controls">
+    <input type="color" id="colorPicker" value="#000000">
+    <button onclick="clearCanvas()">Clear</button>
   </div>
-
-  <section class="player-grid" id="playerGrid">
-    <!-- Player Cards Injected by JS -->
-  </section>
-
-  <div id="playerModal" class="modal hidden">
-    <div class="modal-content">
-      <span class="close-button" onclick="closeModal()">×</span>
-      <h2 id="modalName"></h2>
-      <img id="modalImage" src="" alt="Player Image" />
-      <ul>
-        <li><strong>Jersey:</strong> <span id="modalJersey"></span></li>
-        <li><strong>Matches:</strong> <span id="modalMatches"></span></li>
-        <li><strong>Strike Rate:</strong> <span id="modalStrike"></span></li>
-        <li><strong>Best Performance:</strong> <span id="modalPerformance"></span></li>
-      </ul>
-    </div>
-  </div>
-
+  <canvas id="drawCanvas"></canvas>
   <script src="script.js"></script>
 </body>
 </html>
