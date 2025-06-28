@@ -1,28 +1,36 @@
-# Taylor Swift Lyrics Visualizer
+# Squad Goals - Dream Cricket Team
 
-An interactive Streamlit web app that allows users to enter the title of a **Taylor Swift** song, fetches the lyrics from the Genius API, 
-and generates a visually appealing **Word Cloud** based on the lyrics. This project combines Python, Streamlit, and natural 
-language visualization for an engaging fan experience.
+Welcome to Thunder Strikers – a fan-made dream team web app created with HTML, CSS, and JavaScript!
 
-##  Features
 
-- Input a Taylor Swift song title
-- Automatically fetch lyrics using the **Genius API**
-- Generate and display a **Word Cloud**
-- Preview full lyrics in a scrollable box
-- Responsive and user-friendly interface built with **Streamlit**
+## Features
+
+- Team Name, Slogan, and Clean Header Section
+-  Player Grid with images, names, and roles (Batsman, Bowler)
+-  Interactive Modal showing bonus stats:
+- Strike Rate  
+- Matches Played
+- Jersey Number
+- Best Performance
+- Filter Buttons to view All players, only Batsmen, or only Bowlers
+
 
 ## Tech Stack
 
-- [Python 3.x](https://www.python.org/)
-- [Streamlit](https://streamlit.io/)
-- [Genius API](https://genius.com/developers)
-- [lyricsgenius](https://github.com/johnwmillr/LyricsGenius)
-- [WordCloud](https://github.com/amueller/word_cloud)
-- [dotenv](https://pypi.org/project/python-dotenv/)
+- HTML5 – For content structure
+- CSS3 – For layout and design (Flexbox & Grid)
+- JavaScript – For DOM interaction and modal functionality
 
-## Installation
-
-pip install -r requirements.txt
-GENIUS_API_TOKEN=7WSKX5NfTjJ7O-X7049_L6vYKBB8eHT8bjdAtviIUQmQVsFsgCPcu6FcxKTXRVoC
-streamlit run app.py
+##  Folder Structure
+dream-cricket-team/
+├── index.html
+├── style.css
+├── script.js
+├── assets/
+│ ├── vir.jpg
+│ ├── jas.jpg
+│ ├── rohit.jpg
+│ ├── rahul.jpg
+│ ├── hardik.jpg
+│ ├── chahal.jpg
+└── README.md
